@@ -78,7 +78,7 @@ const data = [
   { name: 'Mueller', score:77 },
   { name: 'Daniel', score:100 },
   { name: 'Dong', score:65 },
-  { name: 'William', score:5 },
+  { name: 'William', score:50 },
   { name: 'Stefanie', score:84 },
 ];
 
@@ -105,4 +105,21 @@ const y = d3.scaleLinear()
     .append('g')
     .attr('fill', 'royalblue')
     .selectAll('rect')
-    .data(data.sort)
+    .data(data.sort((a, b) => d3.descending(a.score, b.score)))
+    .join('rect')
+      .attr('x', (d, i)=> x(i))
+      .attr('y', (d)=> y(d.score))
+      .attr('height', d=> y(0) - y(d.score))
+      .attr('width', x.bandwidth())
+
+function xAxis(g){
+  g.attr('transform', `translate(0, ${height - margin.bottom})`)
+  .call(d3.axisBottom(x).tickFormat(i => data[i].name))
+}
+
+function yAxis(g){
+
+}
+
+svg.append('g').call(xAxis);
+svg.node();
