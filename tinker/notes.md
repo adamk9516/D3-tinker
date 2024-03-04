@@ -11,7 +11,7 @@ On-base plus Slugging - On-base percentage + Slugging percentage
 
 Pitching
 
-Earned Run Average - (Earned Runs Allowed divided by Innings Pitched) * 9
+Earned Run Average - (Earned Runs Allowed) / (Innings Pitched) * 9
 
 
 (https://www.mlbbaseballfreepicks.com/calculating-baseball-stats/)
